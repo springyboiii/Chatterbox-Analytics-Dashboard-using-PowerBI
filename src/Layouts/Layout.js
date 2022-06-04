@@ -6,9 +6,9 @@ import {
     Route,
     
   } from "react-router-dom";
-import Graphs from '../Components/graphs';
-  import Home from '../Components/Home';
-import Insights from '../Components/Insights';
+import Graphs from '../Pages/graphs';
+  import Home from '../Pages/Home';
+import Insights from '../Pages/Insights';
 const Layout = () => {
   return (
     <div>
