@@ -8,8 +8,10 @@ const Header = () => {
     <Container>
     <Navbar.Brand href="/home">ANALYST</Navbar.Brand>
     <Nav className="me-auto">
-      <Nav.Link href="/home">Home</Nav.Link>
-      <Nav.Link href="#features">Graphs</Nav.Link>
+    <Nav.Link href="/insights">Insights</Nav.Link>
+
+      <Nav.Link href="/home">Statistics</Nav.Link>
+      <Nav.Link href="/graphs">Graphs</Nav.Link>
       <Nav.Link href="#pricing">Predict</Nav.Link>
     </Nav>
     </Container>

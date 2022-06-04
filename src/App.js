@@ -1,13 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
-import Header from './Components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter,
-  Switch,
+  
   Routes,
   Route,
-  Link
+  
 } from "react-router-dom";
 import Layout from './Layouts/Layout';
 function App() {

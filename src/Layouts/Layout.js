@@ -1,25 +1,31 @@
 import React from 'react'
 import Header from '../Components/Header'
 import {
-    BrowserRouter,
-    Switch,
+    
     Routes,
     Route,
-    Link
+    
   } from "react-router-dom";
-import Home from '../Components/Home';
+import Graphs from '../Components/graphs';
+  import Home from '../Components/Home';
+import Insights from '../Components/Insights';
 const Layout = () => {
   return (
     <div>
         <Header/>
         
       <Routes>
-        <Route path="home" element={<Home />}>
+        <Route path="home" element={<Home />}/>
+        <Route path="graphs" element={<Graphs />}/>
+        <Route path="insights" element={<Insights />}/>
+
+          
           {/* <Route index element={<Home />} />
           <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NoPage />} /> */}
-        </Route>
+x        
+
       </Routes>
     
     </div>
