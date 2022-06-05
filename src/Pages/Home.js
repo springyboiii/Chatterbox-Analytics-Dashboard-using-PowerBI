@@ -1,5 +1,4 @@
 import React from 'react'
-import {Ratio,Stack,Row,Col} from 'react-bootstrap'
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 

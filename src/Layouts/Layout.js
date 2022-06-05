@@ -8,7 +8,7 @@ import {
   } from "react-router-dom";
 import Graphs from '../Pages/graphs';
   import Home from '../Pages/Home';
-import Insights from '../Pages/Insights';
+import Predict from '../Pages/Predict';
 const Layout = () => {
   return (
     <div>
@@ -16,8 +16,8 @@ const Layout = () => {
         
       <Routes>
         <Route path="home" element={<Home />}/>
-        <Route path="graphs" element={<Graphs />}/>
-        <Route path="insights" element={<Insights />}/>
+        {/* <Route path="graphs" element={<Graphs />}/> */}
+        <Route path="predict" element={<Predict />}/>
 
           
           {/* <Route index element={<Home />} />
