@@ -3,29 +3,85 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import { useState } from 'react';
 import { Button } from '@mui/material';
-import SendIcon from '@mui/material/Icon/';
+import axios from 'axios';
 import "../Styles/tabs.css"
+import { useEffect } from 'react';
+import Axios from 'axios';
 const Predict = () => {
-  const [ID, setID] = useState("1");
-  const [AccountLength, setAccountLength] = useState("!")
-  const [LocationCode, setLocationCode] = useState("1")
-  const [InternationalPlan, setInternationalPlan] = useState("1")
-  const [VoicdeMailPlan, setVoicdeMailPlan] = useState("1")
-  const [NoOfVMMessages, setNoOfVMMessages] = useState("1")
-  const [TotalDayCalls, setTotalDayCalls] = useState("1")
-  const [TotalDayMins, setTotalDayMins] = useState("1")
-  const [TotalDayCharge, setTotalDayCharge] = useState("1")
-  const [TotalEveCharge, setTotalEveCharge] = useState("1")
-  const [TotalNightCharge, setTotalNightCharge] = useState("1")
-  const [TotalInternationalCharge, setTotalInternationalCharge] = useState("1")
-  const [TotalInternationalMins, setTotalInternationalMins] = useState("1")
-  const [TotalEveMins, setTotalEveMins] = useState("1")
-  const [TotalEveCalls, setTotalEveCalls] = useState("1")
-  const [TotalInternationalCalls, setTotalInternationalCalls] = useState("1")
-  const [TotalNightCalls, setTotalNightCalls] = useState("1")
-  const [TotalNightMins, setTotalNightMins] = useState("1")
-  const [CustomerServiceCalls, setCustomerServiceCalls] = useState("1")
-const [Churn, setChurn] = useState(false)
+  // const [profileData, setProfileData] = useState({profile_name:"initial ",about_me:"initial"})
+  // useEffect(() => {
+    function sendData() {
+      Axios.post("/sendData", {
+      
+      ID:ID,
+      AccountLength:AccountLength,
+      LocationCode:LocationCode,
+      InternationalPlan:InternationalPlan,
+      VoicdeMailPlan:VoicdeMailPlan,
+      NoOfVMMessages:NoOfVMMessages,
+      TotalDayCalls:TotalDayCalls,
+      TotalDayCharge:TotalDayCharge,
+      TotalDayMins:TotalDayMins,
+      TotalEveCalls:TotalEveCalls,
+      TotalEveCharge:TotalEveCharge,
+      TotalEveMins:TotalEveMins,
+      TotalInternationalCalls:TotalInternationalCalls,
+      TotalInternationalCharge:TotalInternationalCharge,
+      TotalInternationalMins:TotalInternationalMins,
+      TotalNightCalls:TotalNightCalls,
+      TotalNightMins:TotalNightMins,
+      TotalNightCharge:TotalNightCharge,
+      CustomerServiceCalls:CustomerServiceCalls
+      
+    }).then((response)=>{
+      // setName(response.data[0].name);
+      // setContact(response.data[0].contact_no);
+      // setUsername(response.data[0].username);
+      // setEmail(response.data[0].email);
+      // setLocation(response.data[0].address);
+      // setDescription(response.data[0].about);
+      // console.log(response.data)
+      setChurn((response.data))
+
+      alert("succesful");
+      
+    });
+      // Axios.get('http://localhost:9000/editProfile').then((response) => { console.log(response.data) });
+    
+    };
+  // }, []);
+  function getData() {
+    axios({
+      method: "GET",
+      url:"/predict",
+    })
+    .then((response) => {
+      console.log(response.data)
+      const res =response.data
+      setChurn((res.Churn))
+    })}
+
+   
+  const [ID, setID] = useState(3322);
+  const [AccountLength, setAccountLength] = useState(9)
+  const [LocationCode, setLocationCode] = useState(445)
+  const [InternationalPlan, setInternationalPlan] = useState(1)
+  const [VoicdeMailPlan, setVoicdeMailPlan] = useState(0)
+  const [NoOfVMMessages, setNoOfVMMessages] = useState(0)
+  const [TotalDayCalls, setTotalDayCalls] = useState(112)
+  const [TotalDayMins, setTotalDayMins] = useState(258.4)
+  const [TotalDayCharge, setTotalDayCharge] = useState(42.89)
+  const [TotalEveCharge, setTotalEveCharge] = useState(14.47)
+  const [TotalNightCharge, setTotalNightCharge] = useState(7.09)
+  const [TotalInternationalCharge, setTotalInternationalCharge] = useState(3.27)
+  const [TotalInternationalMins, setTotalInternationalMins] = useState(12.1)
+  const [TotalEveMins, setTotalEveMins] = useState(190)
+  const [TotalEveCalls, setTotalEveCalls] = useState(93)
+  const [TotalInternationalCalls, setTotalInternationalCalls] = useState(3)
+  const [TotalNightCalls, setTotalNightCalls] = useState(105)
+  const [TotalNightMins, setTotalNightMins] = useState(158.6)
+  const [CustomerServiceCalls, setCustomerServiceCalls] = useState(2)
+  const [Churn, setChurn] = useState(2)
 
    
   
@@ -34,6 +90,9 @@ const [Churn, setChurn] = useState(false)
       
       <br />
       <br />
+      {/* <h1>{profileData.profile_name}asdasd </h1>
+      <h1>{profileData.about_me}asdasd </h1> */}
+
       <Box
       component="form"
       sx={{
@@ -48,35 +107,35 @@ const [Churn, setChurn] = useState(false)
           id="outlined-required"
           defaultValue="Required"
           label="ID"
-          onChange={(e)=>{setID(e.target.value)}}
+          onChange={(e)=>{setID(parseInt(e.target.value))}}
         />
         <TextField
           required
           id="outlined-required"
           defaultValue="Required"
           label="Account Length"
-          onChange={(e)=>{setAccountLength(e.target.value)}}
+          onChange={(e)=>{setAccountLength(parseInt(e.target.value))}}
         />
         <TextField
           required
           id="outlined-required"
           defaultValue="Required"
           label="Location Code"
-          onChange={(e)=>{setLocationCode(e.target.value)}}
+          onChange={(e)=>{setLocationCode(parseFloat(e.target.value))}}
         />
         <TextField
           required
           id="outlined-required"
           defaultValue="Required"
           label="International Plan"
-          onChange={(e)=>{setInternationalPlan(e.target.value)}}
+          onChange={(e)=>{setInternationalPlan(parseInt(e.target.value))}}
         />
        <TextField
           required
           id="outlined-required"
           defaultValue="Required"
           label="Voice Mail Plan"
-          onChange={(e)=>{setVoicdeMailPlan(e.target.value)}}
+          onChange={(e)=>{setVoicdeMailPlan(parseInt(e.target.value))}}
 
         />
         
@@ -85,7 +144,7 @@ const [Churn, setChurn] = useState(false)
           id="outlined-required"
           defaultValue="Required"
           label="No Of VM Messages"
-          onChange={(e)=>{setNoOfVMMessages(e.target.value)}}
+          onChange={(e)=>{setNoOfVMMessages(parseFloat(e.target.value))}}
 
         />
         <TextField
@@ -93,7 +152,7 @@ const [Churn, setChurn] = useState(false)
           id="outlined-required"
           defaultValue="Required"
           label="Total Day Calls"
-          onChange={(e)=>{setTotalDayCalls(e.target.value)}}
+          onChange={(e)=>{setTotalDayCalls(parseFloat(e.target.value))}}
 
         />
         <TextField
@@ -101,7 +160,7 @@ const [Churn, setChurn] = useState(false)
           id="outlined-required"
           defaultValue="Required"
           label="Total Day Mins"
-          onChange={(e)=>{setTotalDayMins(e.target.value)}}
+          onChange={(e)=>{setTotalDayMins(parseFloat(e.target.value))}}
 
         />
         <TextField
@@ -109,7 +168,7 @@ const [Churn, setChurn] = useState(false)
           id="outlined-required"
           defaultValue="Required"
           label="Total Day Charge"
-          onChange={(e)=>{setTotalDayCharge(e.target.value)}}
+          onChange={(e)=>{setTotalDayCharge(parseFloat(e.target.value))}}
 
         />
         <TextField
@@ -117,7 +176,7 @@ const [Churn, setChurn] = useState(false)
           id="outlined-required"
           defaultValue="Required"
           label="Total Eve Calls"
-          onChange={(e)=>{setTotalEveCalls(e.target.value)}}
+          onChange={(e)=>{setTotalEveCalls(parseInt(e.target.value))}}
 
         />
         <TextField
@@ -125,7 +184,7 @@ const [Churn, setChurn] = useState(false)
           id="outlined-required"
           defaultValue="Required"
           label="Total Eve Mins"
-          onChange={(e)=>{setTotalEveMins(e.target.value)}}
+          onChange={(e)=>{setTotalEveMins(parseFloat(e.target.value))}}
 
         />
         <TextField
@@ -133,7 +192,7 @@ const [Churn, setChurn] = useState(false)
           id="outlined-required"
           defaultValue="Required"
           label="Total Eve Charge"
-          onChange={(e)=>{setTotalEveCharge(e.target.value)}}
+          onChange={(e)=>{setTotalEveCharge(parseFloat(e.target.value))}}
 
         />
       <TextField
@@ -141,42 +200,42 @@ const [Churn, setChurn] = useState(false)
           id="outlined-required"
           defaultValue="Required"
           label="Total Night Calls"
-          onChange={(e)=>{setTotalNightCalls(e.target.value)}}
+          onChange={(e)=>{setTotalNightCalls(parseFloat(e.target.value))}}
 
         /><TextField
         required
         id="outlined-required"
         defaultValue="Required"
         label="Total Night Mins"
-        onChange={(e)=>{setTotalNightMins(e.target.value)}}
+        onChange={(e)=>{setTotalNightMins(parseFloat(e.target.value))}}
 
       /><TextField
       required
       id="outlined-required"
       defaultValue="Required"
       label="Total Night Charge"
-      onChange={(e)=>{setTotalNightCharge(e.target.value)}}
+      onChange={(e)=>{setTotalNightCharge(parseFloat(e.target.value))}}
 
     /><TextField
     required
     id="outlined-required"
     defaultValue="Required"
     label="Total International Calls"
-    onChange={(e)=>{setTotalInternationalCalls(e.target.value)}}
+    onChange={(e)=>{setTotalInternationalCalls(parseFloat(e.target.value))}}
 
   /><TextField
   required
   id="outlined-required"
   defaultValue="Required"
   label="Total International Mins"
-  onChange={(e)=>{setTotalInternationalMins(e.target.value)}}
+  onChange={(e)=>{setTotalInternationalMins(parseFloat(e.target.value))}}
 
 /><TextField
           required
           id="outlined-required"
           defaultValue="Required"
           label="Total International Charge"
-          onChange={(e)=>{setTotalInternationalCharge(e.target.value)}}
+          onChange={(e)=>{setTotalInternationalCharge(parseFloat(e.target.value))}}
 
         />
     <TextField
@@ -184,7 +243,7 @@ const [Churn, setChurn] = useState(false)
           id="outlined-required"
           defaultValue="Required"
           label="Customer Service Calls"
-          onChange={(e)=>{setCustomerServiceCalls(e.target.value)}}
+          onChange={(e)=>{setCustomerServiceCalls(parseFloat(e.target.value))}}
 
         />
       </div>
@@ -192,18 +251,18 @@ const [Churn, setChurn] = useState(false)
     </Box>
     <br />
     <div className='predictSubmit'>
-    <Button variant="contained" >
+    <Button variant="contained" onClick={sendData} >
   Predict
 </Button>
 <br />
 <br />
 <div className='Text TextFalse'>
-{!Churn &&<h1>Oh Sorry! Better Luck Next Time</h1>}
+{Churn==0 &&<h1>Oh Sorry! Better Luck Next Time</h1>}
 </div>
 <div className='Text TextTrue'>
-{Churn &&<h1>Yayyy! Luckily He/She is still hanging on</h1>}
+{Churn ==1&&<h1>Yayyy! Luckily He/She is still hanging on</h1>}
 </div>
-{console.log(Churn)}
+{console.log(ID)}
 
 
 </div>
