@@ -1,0 +1,37 @@
+.MuiTab-root{
+    color: red;
+}
+.MuiTab-root:hover{
+    color:rgb(78, 54, 155);
+}	
+.MuiAppBar-root	{
+    color: green;
+}
+.MuiAppBar-colorPrimary{
+    color:green
+    
+}
+.predictSubmit	{
+text-align: center;
+}
+.Text {
+    height: 50px;
+    display: inline-block;
+    font-size: 300px;
+    /* line-height: 84%; */
+    font-family: Modak;
+    padding-left: 7px;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    /* margin-top: calc(50vh - 100px); */
+    text-shadow: 7px 7px 0px #d2d2d22e;
+}
+.TextTrue{
+    background-image: linear-gradient(to right, rgba(13, 255, 0, 0.606), rgb(0, 255, 72));
+
+}
+.TextFalse{
+    background-image: linear-gradient(to right, rgb(255, 77, 0), rgb(255, 0, 0));
+
+}
