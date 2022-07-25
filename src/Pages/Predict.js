@@ -43,7 +43,7 @@ const Predict = () => {
       // console.log(response.data)
       setChurn((response.data))
 
-      alert("succesful");
+      alert("Prediction successful");
       
     });
       // Axios.get('http://localhost:9000/editProfile').then((response) => { console.log(response.data) });
@@ -257,6 +257,7 @@ const Predict = () => {
 <br />
 <br />
 <div className='Text TextFalse'>
+  {console.log(Churn)}
 {Churn==0 &&<h1>Oh Sorry! Better Luck Next Time</h1>}
 </div>
 <div className='Text TextTrue'>

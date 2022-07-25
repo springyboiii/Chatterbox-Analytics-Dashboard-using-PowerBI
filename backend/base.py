@@ -40,7 +40,7 @@ def sendData():
  'customer_service_calls'])
     # print(X.info())
     prediction = model.predict(X)[0]
-    print(prediction)
+    print(prediction,"prediction")
     print(X.head())
     # print(data["ID"])
-    return str(0)
+    return str(prediction)
